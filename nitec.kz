@@ -1,0 +1,1457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0059)https://edocs.nitec.kz/user/login?back=%252Fuser%252Flogout -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Вход — Documentolog 7</title>
+    <link rel="icon" href="https://edocs.nitec.kz/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="./index_files/reset.css" type="text/css">
+
+    <link rel="stylesheet" href="./index_files/icons.css" type="text/css">
+    <link rel="stylesheet" href="./index_files/login_page.css" type="text/css">
+    <link rel="stylesheet" href="./index_files/font-awesome.min.css">
+    <script type="text/javascript" src="./index_files/jquery-3.5.1.min.js.Без названия"></script>
+    <script type="text/javascript" src="./index_files/jquery.form.js.Без названия"></script>
+    <script type="text/javascript" src="./index_files/doclog_ws.js.Без названия"></script>
+    <script type="text/javascript" src="./index_files/mobile_ws.js.Без названия"></script>
+    <script type="text/javascript" src="./index_files/login-sign.js.Без названия"></script>
+    <script type="text/javascript" src="./index_files/jquery.maskedinput-1.3.min.js.Без названия"></script>
+    <script type="text/javascript" src="./index_files/jquery-ui-3.5.1.custom.min.js.Без названия"></script>
+    <script type="text/javascript" src="./index_files/jss.min.js.Без названия"></script>
+    <script type="text/javascript" src="./index_files/tumsocket.js.Без названия"></script>
+    <script type="text/javascript" src="./index_files/CryptoSocket.js.Без названия"></script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        waitMessage = 'Пожалуйста ждите...';
+        var ipToken = 'd2ef6197a475a19cf06a860a09826779';
+        var isAuthCenter = '';
+        var isTwoFactorAndIsSaveRftn = '0';
+
+        /* Locale for JS */
+        /**
+ * $Id: jslocale.php 4753 2019-02-08 10:21:27Z b.tursynbay $
+ */
+MSF_DateHelperLocale = $.parseJSON('{\"week_days\":[\"Воскресенье\",\"Понедельник\",\"Вторник\",\"Среда\",\"Четверг\",\"Пятница\",\"Суббота\"],\"short_week_days\":[\"Вс\",\"Пн\",\"Вт\",\"Ср\",\"Чт\",\"Пт\",\"Сб\"],\"months\":[\"Январь\",\"Февраль\",\"Март\",\"Апрель\",\"Май\",\"Июнь\",\"Июль\",\"Август\",\"Сентябрь\",\"Октябрь\",\"Ноябрь\",\"Декабрь\"],\"short_months\":[\"Янв\",\"Фев\",\"Мар\",\"Апр\",\"Май\",\"Июн\",\"Июл\",\"Авг\",\"Сен\",\"Окт\",\"Ноя\",\"Дек\"],\"time\":[\"час\",\"мин\",\"сек\"],\"today\":[\"Сегодня\"]}');
+
+/**
+*	@example MSF_Locale.get("Слово")
+*/
+
+MSF_Locale = $.parseJSON('{\"комментарий к фото\":\"комментарий к фото\",\"Выбрать документ\":\"Выбрать документ\",\"Просмотр\":\"Просмотр\",\"Закрыть\":\"Закрыть\",\"Закончить\":\"Закончить\",\"Далее\":\"Далее\",\"Назад\":\"Назад\",\"Скачать\":\"Скачать\",\"Пожалуйста ждите\":\"Пожалуйста ждите\",\"Нажмите Esc для закрытия\":\"Нажмите Esc для закрытия\",\"Загрузка изображения\":\"Загрузка изображения\",\"Не удалось загрузить изображение\":\"Не удалось загрузить изображение\",\"Проверка\":\"Проверка\",\"Проверить еще раз\":\"Проверить еще раз\",\"Мб\":\"Мб\",\"Загрузить файл\":\"Загрузить файл\",\"Файл слишком большой\":\"Файл слишком большой\",\"Наведите курсор на строку\":\"Наведите курсор на строку\",\"Двойной клик по заголовку, чтобы редактировать название просмотра\":\"Двойной клик по заголовку, чтобы редактировать название просмотра\",\"Безымянный просмотр\":\"Безымянный просмотр\",\"Действительно удалить?\":\"Действительно удалить?\",\"Удалить\":\"Удалить\",\"Вопрос\":\"Вопрос\",\"Тип вопроса\":\"Тип вопроса\",\"Введите ваш пароль в ИС ЭСФ и пароль к сертификату AUTH_RSA\":\"Введите ваш пароль в ИС ЭСФ и пароль к сертификату AUTH_RSA\",\"Простой ответ\":\"Простой ответ\",\"Варианты\":\"Варианты\",\"Можно выбрать несколько вариантов ответа\":\"Можно выбрать несколько вариантов ответа\",\"Баллы за правильный ответ\":\"Баллы за правильный ответ\",\"Обязательный коментарий\":\"Обязательный коментарий\",\"Добавить вариант\":\"Добавить вариант\",\"Удаление\":\"Удаление\",\"Только что\":\"Только что\",\"Добавить комментарий\":\"Добавить комментарий\",\"Я\":\"Я\",\"Ответить\":\"Ответить\",\"Отправка голоса\":\"Отправка голоса\",\"Голос принят!\":\"Голос принят!\",\"Вы уже голосовали\":\"Вы уже голосовали\",\"Голосование завершено, ваш голос не принят\":\"Голосование завершено, ваш голос не принят\",\"Попробовать еще раз\":\"Попробовать еще раз\",\"голосов\":\"голосов\",\"Результаты голосования\":\"Результаты голосования\",\"завершилось\":\"завершилось\",\"завершится\":\"завершится\",\"Любая категория\":\"Любая категория\",\"Записи блога\":\"Записи блога\",\"Новые\":\"Новые\",\"Популярные\":\"Популярные\",\"Обсуждаемые\":\"Обсуждаемые\",\"Мои записи\":\"Мои записи\",\"Добавить\":\"Добавить\",\"Редактировать запись\":\"Редактировать запись\",\"Сохранение\":\"Сохранение\",\"Успешно сохранено!\":\"Успешно сохранено!\",\"Сохранить изменения\":\"Сохранить изменения\",\"Произошла ошибка\":\"Произошла ошибка\",\"Сохранить еще раз\":\"Сохранить еще раз\",\"Фон\":\"Фон\",\"Шаблон\":\"Шаблон\",\"Серый геометрический узор\":\"Серый геометрический узор\",\"Светлый геометрический узор\":\"Светлый геометрический узор\",\"Нейроны\":\"Нейроны\",\"Темный уголь\":\"Темный уголь\",\"Аквариум\":\"Аквариум\",\"Небо\":\"Небо\",\"Загрузить\":\"Загрузить\",\"Отмена\":\"Отмена\",\"Настроить стол\":\"Настроить стол\",\"Добавить на рабочий стол\":\"Добавить на рабочий стол\",\"Подтвердить\":\"Подтвердить\",\"Удалить виджет\":\"Удалить виджет\",\"Действительно удалить этот виджет?\":\"Действительно удалить этот виджет?\",\"Почта\":\"Почта\",\"Показать непрочитанные письма\":\"Показать непрочитанные письма\",\"Новое письмо\":\"Новое письмо\",\"Перейти в почту\":\"Перейти в почту\",\"Параметры виджета\":\"Параметры виджета\",\"Стандартный размер\":\"Стандартный размер\",\"Непрочитанные письма\":\"Непрочитанные письма\",\"Применить\":\"Применить\",\"Ошибка доступа\":\"Ошибка доступа\",\"Вы не вошли в систему\":\"Вы не вошли в систему\",\"Попробуйте обновить страницу через несколько минут или обратитесь к администратору\":\"Попробуйте обновить страницу через несколько минут или обратитесь к администратору\",\"Ошибка сети\":\"Ошибка сети\",\"Нет непрочитанных писем\":\"Нет непрочитанных писем\",\"Есть непрочитанные письма\":\"Есть непрочитанные письма\",\"Мой календарь\":\"Мой календарь\",\"Перейти в календарь\":\"Перейти в календарь\",\"Внешний вид\":\"Внешний вид\",\"Справка\":\"Справка\",\"Легенда\":\"Легенда\",\"Событие прошло\":\"Событие прошло\",\"В процессе\":\"В процессе\",\"Еще не наступило\":\"Еще не наступило\",\"Функционал\":\"Функционал\",\"Чтобы прочесть описание, кликните по событию\":\"Чтобы прочесть описание, кликните по событию\",\"Для быстрого перемещения на события дня, используйте вкладки Сегодня, Завтра, Послезавтра\":\"Для быстрого перемещения на события дня, используйте вкладки Сегодня, Завтра, Послезавтра\",\"Произошла ошибка на сервере\":\"Произошла ошибка на сервере\",\"Сегодня\":\"Сегодня\",\"Завтра\":\"Завтра\",\"Послезавтра\":\"Послезавтра\",\"Место\":\"Место\",\"Не указано\":\"Не указано\",\"Без описания\":\"Без описания\",\"Добавить событие\":\"Добавить событие\",\"Нет событий\":\"Нет событий\",\"Настройка внешнего вида\":\"Настройка внешнего вида\",\"Тема\":\"Тема\",\"Светлая\":\"Светлая\",\"Темная\":\"Темная\",\"Обновить\":\"Обновить\",\"Не указан URL адрес RSS-канала\":\"Не указан URL адрес RSS-канала\",\"Источник\":\"Источник\",\"URL на RSS-канал\":\"URL на RSS-канал\",\"Название канала\":\"Название канала\",\"Читать полностью\":\"Читать полностью\",\"Мои документы\":\"Мои документы\",\"Виджет не настроен должным образом\":\"Виджет не настроен должным образом\",\"Просрочено дней\":\"Просрочено дней\",\"Осталось дней до контрольного срока\":\"Осталось дней до контрольного срока\",\"Настройка фильтра\":\"Настройка фильтра\",\"Состояние\":\"Состояние\",\"Без названия\":\"Без названия\",\"Список дел, как текст\":\"Список дел, как текст\",\"Очистить список дел\":\"Очистить список дел\",\"Введите название задачи и нажмите Enter\":\"Введите название задачи и нажмите Enter\",\"Действительно очистить список дел?\":\"Действительно очистить список дел?\",\"Список дел\":\"Список дел\",\"Общее\":\"Общее\",\"Удалить задачу\":\"Удалить задачу\",\"Нет примечания\":\"Нет примечания\",\"Дни рождения\":\"Дни рождения\",\"Дней рождения в ближайшие 30 дней нет\":\"Дней рождения в ближайшие 30 дней нет\",\"Осталось дней\":\"Осталось дней\",\"Уже празднуем! ;)\":\"Уже празднуем! ;)\",\"Действия коллег\":\"Действия коллег\",\"Новые фотографии\":\"Новые фотографии\",\"Новые комментарии\":\"Новые комментарии\",\"Фотографии\":\"Фотографии\",\"Загрузка\":\"Загрузка\",\"Показать еще\":\"Показать еще\",\"Нет фото\":\"Нет фото\",\"Попробуйте снова\":\"Попробуйте снова\",\"Количество фотографий\":\"Количество фотографий\",\"Количество комментариев\":\"Количество комментариев\",\"Размер фотографии\":\"Размер фотографии\",\"Не выбрано\":\"Не выбрано\",\"Большой\":\"Большой\",\"Средний\":\"Средний\",\"Малый\":\"Малый\",\"Новые записи\":\"Новые записи\",\"Корпоративный блог\":\"Корпоративный блог\",\"Заголовок виджета\":\"Заголовок виджета\",\"Тематика записей\":\"Тематика записей\",\"Курс валют (НБРК)\":\"Курс валют (НБРК)\",\"Укажите, курс каких валют вы хотите видеть в виджете, расположите элементы в удобном для вас порядке\":\"Укажите, курс каких валют вы хотите видеть в виджете, расположите элементы в удобном для вас порядке\",\"Загрузка списка валют\":\"Загрузка списка валют\",\"Отметить\\/убрать все\":\"Отметить\\/убрать все\",\"Виджет не настроен, города не указаны\":\"Виджет не настроен, города не указаны\",\"Укажите города, прогноз погоды которых, вы хотите видеть в виджете\":\"Укажите города, прогноз погоды которых, вы хотите видеть в виджете\",\"Документы\":\"Документы\",\"Нет документов\":\"Нет документов\",\"Виджет не настроен\":\"Виджет не настроен\",\"Выберите журнал, затем сопоставьте поля журнала с полями виджета\":\"Выберите журнал, затем сопоставьте поля журнала с полями виджета\",\"Загрузка журналов\":\"Загрузка журналов\",\"Заголовок\":\"Заголовок\",\"Текст под заголовком\":\"Текст под заголовком\",\"Макс. длина\":\"Макс. длина\",\"Дата\":\"Дата\",\"Картинка\":\"Картинка\",\"поля обязательны для заполнения\":\"поля обязательны для заполнения\",\"Сопоставьте поле\":\"Сопоставьте поле\",\"Все альбомы\":\"Все альбомы\",\"Мои альбомы\":\"Мои альбомы\",\"Создать альбом\":\"Создать альбом\",\"Редактировать альбом\":\"Редактировать альбом\",\"Вы действительно хотите удалить это поле?\":\"Вы действительно хотите удалить это поле?\",\"Вы действительно хотите удалить это представление?\":\"Вы действительно хотите удалить это представление?\",\"Вы действительно хотите удалить эту точку?\":\"Вы действительно хотите удалить эту точку?\",\"Вы действительно хотите удалить эту таблицу?\":\"Вы действительно хотите удалить эту таблицу?\",\"Поле\":\"Поле\",\"Условие\":\"Условие\",\"Значение\":\"Значение\",\"Поля не указаны\":\"Поля не указаны\",\"Добавить поле\":\"Добавить поле\",\"Удалить фильтр\":\"Удалить фильтр\",\"Удалить поле\":\"Удалить поле\",\"Не удалось загрузить изображение!\":\"Не удалось загрузить изображение!\",\"Вы действительно хотите удалить выбранные элементы?\":\"Вы действительно хотите удалить выбранные элементы?\",\"Вы действительно хотите восстановить выбранные элементы?\":\"Вы действительно хотите восстановить выбранные элементы?\",\"Укажите причину удаления:\":\"Укажите причину удаления:\",\"Заполните причину удаления\":\"Заполните причину удаления\",\"Еще\":\"Еще\",\"Подсказки нет\":\"Подсказки нет\",\"Экспорт невозможен, т.к. шаблон для печати не прикреплен! Обратитесь к администратору системы\":\"Экспорт невозможен, т.к. шаблон для печати не прикреплен! Обратитесь к администратору системы\",\"Сохранить в черновики?\":\"Сохранить в черновики?\",\"Сохранить в Черновики\":\"Сохранить в Черновики\",\"Введенные данные будут потеряны. Продолжить?\":\"Введенные данные будут потеряны. Продолжить?\",\"Все данные будут потеряны.<\\/br>Вы хотите продолжить?\":\"Все данные будут потеряны.<\\/br>Вы хотите продолжить?\",\"Уведомлений больше нет\":\"Уведомлений больше нет\",\"Тема не указана\":\"Тема не указана\",\"Читать\":\"Читать\",\"Прочитано\":\"Прочитано\",\"Закрыть и больше не показывать\":\"Закрыть и больше не показывать\",\"Последняя активность\":\"Последняя активность\",\"Комментарии\":\"Комментарии\",\"Ждите\":\"Ждите\",\"Текст комментария\":\"Текст комментария\",\"Кликните, чтобы скачать файл\":\"Кликните, чтобы скачать файл\",\"Ярлык сохранен!\":\"Ярлык сохранен!\",\"Сохранить ярлык\":\"Сохранить ярлык\",\"Нет фильтров\":\"Нет фильтров\",\"Простой\":\"Простой\",\"Расширенный\":\"Расширенный\",\"Равно\":\"Равно\",\"Больше или равно\":\"Больше или равно\",\"Меньше или равно\":\"Меньше или равно\",\"Больше\":\"Больше\",\"Меньше\":\"Меньше\",\"Диапазон\":\"Диапазон\",\"Содержит\":\"Содержит\",\"Не содержит\":\"Не содержит\",\"Создание поля\":\"Создание поля\",\"Контакт удален\":\"Контакт удален\",\"Подтвердить удаление?\":\"Подтвердить удаление?\",\"Удалить контакт\":\"Удалить контакт\",\"Загрузка, пожалуйста ждите\":\"Загрузка, пожалуйста ждите\",\"История пуста\":\"История пуста\",\"Приглашение в чат\":\"Приглашение в чат\",\"Принять\":\"Принять\",\"Отклонить\":\"Отклонить\",\"Чат\":\"Чат\",\"онлайн\":\"онлайн\",\"Изменить статус\":\"Изменить статус\",\"В сети\":\"В сети\",\"Занят\":\"Занят\",\"Невидимый\":\"Невидимый\",\"Выйти из чата\":\"Выйти из чата\",\"Пригласить в чат\":\"Пригласить в чат\",\"Новая строка\":\"Новая строка\",\"Выберите собеседника\":\"Выберите собеседника\",\"Отправить\":\"Отправить\",\"История переписки\":\"История переписки\",\"Цвет виджета\":\"Цвет виджета\",\"Прогноз погоды\":\"Прогноз погоды\",\"Название задачи\":\"Название задачи\",\"Нет объектов\":\"Нет объектов\",\"Пожалуйста ждите...\":\"Пожалуйста ждите...\",\"Получение данных\":\"Получение данных\",\"Подписание ЭЦП\":\"Подписание ЭЦП\",\"Подписание данных ЭЦП\":\"Подписание данных ЭЦП\",\"Передача данных в апплет\":\"Передача данных в апплет\",\"Убедитесь что носитель с ЭЦП подключен в USB разъем. Если носитель подключен и проблема сохранилась обратитесь к администратору СЭД\":\"Убедитесь что носитель с ЭЦП подключен в USB разъем. Если носитель подключен и проблема сохранилась обратитесь к администратору СЭД\",\"Ошибка подписи\":\"Ошибка подписи\",\"Ключ ЭЦП не найден или не верный пароль\":\"Ключ ЭЦП не найден или не верный пароль\",\"Сохранен\":\"Сохранен\",\"Посмотреть документ\":\"Посмотреть документ\",\"Документ на подписи\":\"Документ на подписи\",\"Получение данных для подписи\":\"Получение данных для подписи\",\"Ошибка\":\"Ошибка\",\"Данных для подписи нет\":\"Данных для подписи нет\",\"Подписание\":\"Подписание\",\"Идет процесс подписи\":\"Идет процесс подписи\",\"Ошибка подписания\":\"Ошибка подписания\",\"Сохранение документа\":\"Сохранение документа\",\"Ошибка сохранения\":\"Ошибка сохранения\",\"OCSP квитанция не найдена\":\"OCSP квитанция не найдена\",\"Просмотр файла\":\"Просмотр файла\",\"Эта страница просит вас подтвердить, что вы хотите уйти — идет фоновое подписание ЭЦП.\":\"Эта страница просит вас подтвердить, что вы хотите уйти — идет фоновое подписание ЭЦП.\",\"Дочерний\":\"Дочерний\",\"Изменить размер\":\"Изменить размер\",\"Пользовательские фильтры\":\"Пользовательские фильтры\",\"Сгенерировать отчёт\":\"Сгенерировать отчёт\",\"Найти\":\"Найти\",\"Исполнители\":\"Исполнители\",\"Статус\\/Срок исполнения\":\"Статус\\/Срок исполнения\",\"Внеш. исполнители\":\"Внеш. исполнители\",\"Выбрать маршрут\":\"Выбрать маршрут\",\"Очистить маршрут\":\"Очистить маршрут\",\"За все время\":\"За все время\",\"За 24 часа\":\"За 24 часа\",\"За неделю\":\"За неделю\",\"За месяц\":\"За месяц\",\"За год\":\"За год\",\"За период...\":\"За период...\",\"Настройки карточки\":\"Настройки карточки\",\"Сохранить\":\"Сохранить\",\"Хранилище\":\"Хранилище\",\"Обзор\":\"Обзор\",\"Список ключей\":\"Список ключей\",\"Обновить список ключей\":\"Обновить список ключей\",\"Подробнее\":\"Подробнее\",\"Прикрепить\":\"Прикрепить\",\"ЭЦП\":\"ЭЦП\",\"О сертификате\":\"О сертификате\",\"Пароль\":\"Пароль\",\"Информация о сертификате\":\"Информация о сертификате\",\"Владелец\":\"Владелец\",\"ИИН\":\"ИИН\",\"Издатель\":\"Издатель\",\"Тип сертификата\":\"Тип сертификата\",\"БИН организации\":\"БИН организации\",\"Cрок действия сертификата\":\"Cрок действия сертификата\",\"Редактировать\":\"Редактировать\",\"Выберите носитель ЭЦП\":\"Выберите носитель ЭЦП\",\"Выбирая данный пункт вы подтверждаете, что согласны с сохранением конфиденциальных данных на вашем браузере\":\"Выбирая данный пункт вы подтверждаете, что согласны с сохранением конфиденциальных данных на вашем браузере\",\"Запомнить для этого сайта путь до ЭЦП\":\"Запомнить для этого сайта путь до ЭЦП\",\"Запомнить в текущем окне путь до ЭЦП\":\"Запомнить в текущем окне путь до ЭЦП\",\"Запомнить для этого сайта путь до ЭЦП и пароль\":\"Запомнить для этого сайта путь до ЭЦП и пароль\",\"Запомнить в текущем окне путь до ЭЦП и пароль\":\"Запомнить в текущем окне путь до ЭЦП и пароль\",\"Всегда запрашивать\":\"Всегда запрашивать\",\"Файл не выбран\":\"Файл не выбран\",\"Выбрать\":\"Выбрать\",\"Запомнить выбор?\":\"Запомнить выбор?\",\"Хранилище ЭЦП\":\"Хранилище ЭЦП\",\"Подписать\":\"Подписать\",\"Продолжить\":\"Продолжить\",\"Повторить\":\"Повторить\",\"Пароль для подписания\":\"Пароль для подписания\",\"Ключ для подписания\":\"Ключ для подписания\",\"Введите наименование\":\"Введите наименование\",\"Введите email\":\"Введите email\",\"Новый корреспондент\":\"Новый корреспондент\",\"Введите валидный email\":\"Введите валидный email\",\"Введите валидный телефон\":\"Введите валидный телефон\",\"Введите телефон\":\"Введите телефон\",\"Создать нового корреспондента\":\"Создать нового корреспондента\",\"Создать новый\":\"Создать новый\"}');
+MSF_Locale.get = function(sWord)
+{
+    return this[ sWord ] || sWord; // TODO: Case insensitive
+}
+
+        /* ]]> */
+    </script>
+</head>
+
+<body>
+<div id="page_wrapper">
+    <div id="page">
+        <div id="page_columns" class="clearfix">
+
+            <div id="content_wrapper">
+                <div id="content">
+
+                    <img src="./index_files/new_logo_1.png" alt="" id="logo">
+                                            Платформадля автоматизации бизнес-процессовбез программирования                                        <p style="" id="more"></p>
+                </div>
+            </div><!--/#content_wrapper-->
+
+            <div id="left_sidebar">
+                            <form id="loginForm" method="post" action="https://edocs.nitec.kz/user/login?back=/" class="auth_form">
+                    <h2>Вход в систему</h2>
+                    <input type="text" id="login" name="login" value="" placeholder="Логин">
+                    <input type="password" id="password" name="password" value="" placeholder="Пароль">
+                    <input type="hidden" name="language" id="language" value="ru">
+                    <input type="hidden" name="user_agent_js" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36">
+                    <input type="hidden" name="win_h_w" value="864|1536">
+                    <input type="hidden" name="browser_name" value="Chrome">
+                    <input type="hidden" name="browser_version" value="125">
+                    <input type="hidden" name="browser_key" value="1707824048670">
+                    <input type="hidden" name="browser_token" value="75284">
+                    <p><input type="submit" id="submit" value="Войти"></p>
+                    <p id="result" class="block_alert_contrast" style="display:none;"></p>
+                </form>
+                <form id="twofactorForm" method="post" action="https://edocs.nitec.kz/user/twofactor?back=/" class="auth_form" style="display:none">
+                    <h2>Проверочный код</h2>
+                    <input type="hidden" id="twofactorLocation" name="tfLocation" value="/">
+                    <input type="hidden" id="twofactorLogin" name="tfLogin" value="">
+                    <p>
+                        <input type="text" id="twofactorCode" name="tfCode" value="" placeholder="Код проверки" style="color: transparent;text-indent: -500px;" onfocus="$(&#39;.fake-pass&#39;).html($(&#39;.fake-pass&#39;).html()+&#39;|&#39;);">
+                        <span class="fake-pass" style="margin-top: -27px;padding-left: 7px;font-size: 22px;pointer-events: none;width: 100%;height: 26px;display:block;" onclick="$(&#39;#p12Paswd&#39;).focus();"></span>
+                    </p>
+                    <input type="hidden" name="user_agent_js" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36">
+                    <input type="hidden" name="win_h_w" value="864|1536">
+                    <input type="hidden" name="browser_name" value="Chrome">
+                    <input type="hidden" name="browser_version" value="125">
+                    <input type="hidden" name="browser_key" value="1707824048670">
+                    <input type="hidden" name="browser_token" value="75284">
+                    <p><input type="submit" id="submit_twofactor" value="Продолжить"></p>
+                    <p id="twofactor_result" class="block_alert_contrast" style="display:none;"></p>
+                    <script>
+                        $(function(){
+                            $('#twofactorCode').live('input', function(){
+                                var inputValue = $(this).val();
+                                var numChars = inputValue.length;
+                                var showText = "";
+                                for (i = 0; i < numChars; i++) {
+                                    showText += "&#8226;";
+                                }
+                                $('.fake-pass').html(showText+"|");
+                            });
+
+                            $('#twofactorCode').blur(function () {
+                                var str = $('.fake-pass').html();
+                                if(str.charAt(str.length - 1) == "|") {
+                                    $('.fake-pass').html(str.substring(0, str.length - 1));
+                                }
+                            });
+                        });
+                    </script>
+                </form>
+                <form id="updatePasswordForm" method="post" action="https://edocs.nitec.kz/user/change-password?back=/" class="auth_form" style="display:none">
+                    <h2>Обновление пароля</h2>
+                    <p><input type="password" id="old_password" name="old_password" value="" placeholder="Старый пароль"></p>
+                    <p><input type="password" id="new_password" name="new_password" value="" placeholder="Новый пароль"></p>
+                    <p><input type="password" id="new_password_check" name="new_password_check" value="" placeholder="Новый пароль еще раз"></p>
+                    <input type="hidden" name="enter_anyway" value="1">
+                    <br>
+                    <div>
+                        <input type="hidden" name="logout_all_devices" value="0">
+                        <input class="changemonitor" id="logout_all_devices" type="checkbox" name="logout_all_devices" value="1">
+                        <label for="logout_all_devices" style="font-size: 15px">Выйти из всех остальных сеансов</label>
+                    </div>
+                    <input type="hidden" name="user_agent_js" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36">
+                    <input type="hidden" name="win_h_w" value="864|1536">
+                    <input type="hidden" name="browser_name" value="Chrome">
+                    <input type="hidden" name="browser_version" value="125">
+                    <input type="hidden" name="browser_key" value="1707824048670">
+                    <input type="hidden" name="browser_token" value="75284">
+
+                    <p><input type="submit" id="submit_new_pass" value="Продолжить"></p>
+                    <p id="update_result" class="block_alert_contrast" style="display:none;"></p>
+                </form>
+                <form id="forgotPasswordForm" method="post" action="https://edocs.nitec.kz/user/forgot-password?back=/" class="auth_form" style="display:none">
+                    <h2>Восстановление пароля</h2>
+                    <input type="text" id="forgot_login" name="login" value="" placeholder="Логин">
+                    <p><input type="submit" id="submit_forgot_pass" value="Восстановить"></p>
+                    <p id="forgot_result" class="block_alert_contrast" style="display:none;"></p>
+                </form>
+
+                                    <form id="loginSignForm" method="post" action="https://edocs.nitec.kz/user/login?back=/" class="auth_form" style="display:none;">
+                        <h2>Вход в систему (ЭЦП)</h2>
+                        <strong class="label">Тип удостоверяющего центра</strong>
+                        <select name="eds_ca" class="changemonitor" id="eds_ca">
+                            <option value="НУЦ">НУЦ</option>
+                            <option value="УЦГО">УЦГО</option>
+                        </select>
+
+                        <strong class="label">Тип применяемой ЭЦП</strong>
+                        <select name="eds_type" class="changemonitor" id="eds_type">
+                            <option value="eToken" parentname="eds_type">eToken</option>
+                            <option value="KazToken" parentname="eds_type">KazToken</option>
+                            <option value="Файл" parentname="eds_type" selected="selected">Файл</option>
+                        </select>
+                        <select name="eds_tumar_type" class="changemonitor" id="eds_tumar_type" style="display: none;">
+                        </select>
+                        <select name="eds_tumar_key" class="changemonitor" id="eds_tumar_key" style="display: none;">
+                        </select>
+                        <p style="display: none;">
+                            <strong class="label">Выберите ключ</strong>
+                            <br>
+                            <select name="key" class="changemonitor" id="key-select">
+
+                            </select>
+                        </p>
+                        <input type="hidden" name="user_agent_js" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36">
+                        <input type="hidden" name="win_h_w" value="864|1536">
+                        <input type="hidden" name="browser_name" value="Chrome">
+                        <input type="hidden" name="browser_version" value="125">
+                        <input type="hidden" name="browser_key" value="1707824048670">
+                        <input type="hidden" name="browser_token" value="75284">
+                        <input type="hidden" name="enter_anyway" value="0">
+                        <input type="hidden" name="cert" value="">
+                        <p><input type="submit" id="choose-cert" value="Выбрать ЭЦП"></p>
+                        <p><input style="display: none;" type="submit" id="submit-sign-login" value="Войти"></p>
+                        <p id="sign-login-result" class="block_alert_contrast" style="display:none;"></p>
+                    </form>
+                
+                <form id="fineshRegistrationForm" method="post" action="https://edocs.nitec.kz/user/registration?back=/" class="auth_form" style="display:none">
+                    <h2>Регистрация пользователя</h2>
+                    <br>
+                        <div class="description">Для завершения регистрации заполните все нижеперечисленные поля и нажмите кнопку <b>ПРОДОЛЖИТ</b></div>
+                    <input type="password" id="new_password2" name="new_password" value="" placeholder="Введите новый пароль" autocomplete="new-password">
+                    <input type="password" id="new_password_check2" name="new_password_check" value="" placeholder="Введите новый пароль повторно" autocomplete="new-password">
+                    <input type="text" id="new_email" name="new_email" value="" placeholder="Введите ваш e-mail" autocomplete="new-password">
+                    <input type="text" id="new_phone" name="new_phone" value="" placeholder="Введите ваш телефон" autocomplete="new-password">
+                    <input type="submit" id="submit_finesh_registration" value="Продолжить">
+                    <p id="finesh_registration_result" class="block_alert_contrast" style="display:none;"></p>
+                </form>
+                        </div><!--/#left_sidebar-->
+        </div><!--/#page_columns-->
+        <div class="additional_links">
+
+            <select class="selectlanguage">
+                                    <option value="ru" selected="selected">русский</option>
+                                    <option value="kz">қазақша</option>
+                                    <option value="en">english</option>
+                            </select>
+            <span onclick="$(&#39;#left_sidebar form, .additional_links span&#39;).hide(); $(&#39;#loginForm, #forgot-password-btn, #login-sign&#39;).show();" id="login-sign1">Войти с помощью логина</span>
+                            <span id="forgot-password-btn">Забыли пароль?</span>
+                            <span onclick="$(&#39;#left_sidebar form, .additional_links span&#39;).hide(); $(&#39;#loginSignForm, #login-sign1&#39;).show();" id="login-sign">Войти с помощью ЭЦП</span>
+                                </div>
+    </div><!--/#page-->
+</div><!--/#page_wrapper-->
+
+<script type="text/javascript">
+    /* <![CDATA[ */
+
+    function setCookie(name, value, options) {
+        options = options || {};
+
+        var expires = options.expires;
+
+        if (typeof expires == "number" && expires) {
+            var d = new Date();
+            d.setTime(d.getTime() + expires*1000);
+            expires = options.expires = d;
+        }
+        if (expires && expires.toUTCString) {
+            options.expires = expires.toUTCString();
+        }
+
+        value = encodeURIComponent(value);
+
+        var updatedCookie = name + "=" + value;
+
+        for(var propName in options) {
+            updatedCookie += "; " + propName;
+            var propValue = options[propName];
+            if (propValue !== true) {
+                updatedCookie += "=" + propValue;
+            }
+        }
+
+        document.cookie = updatedCookie;
+    }
+
+    function getCookie(userdata) {
+        var name = userdata + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) != -1) return decodeURIComponent(c.substring(name.length, c.length));
+        }
+        return "";
+    }
+
+    function delete_cookie(name) {
+        document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    }
+    function setlanguage($language)
+    {
+        setCookie('language', $language, {path: '/', expires: 365 * 24 * 60 * 60});
+        var login = document.getElementById("login").value;
+        var password = document.getElementById("password").value;
+        setCookie('login', login, {path: '/', expires: 365 * 24 * 60 * 60});
+        setCookie('password', password, {path: '/', expires: 365 * 24 * 60 * 60});
+        window.location.replace("/user/login" + window.location.search);
+    }
+
+    function getBrowser() {
+        var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+        if(/trident/i.test(M[1])){
+            tem=/\brv[ :]+(\d+)/g.exec(ua) || [];
+            return {name:'IE',version:(tem[1]||'')};
+        }
+        if(M[1]==='Chrome'){
+            tem=ua.match(/\bOPR|Edge\/(\d+)/)
+            if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+        }
+        M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+        if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+        return {
+            name: M[0] == 'IE' || M[0] == 'MSIE' ? 'Internet Explorer': M[0],
+            version: M[1]
+        };
+    }
+
+    function checkIsSupported(){
+        var userBrowser = getBrowser();
+
+        if(userBrowser.name == 'Chrome' && userBrowser.version < 21) return false;
+        if(userBrowser.name == 'Safari' && userBrowser.version < 6) return false;
+        if(userBrowser.name == 'Firefox' && userBrowser.version < 30) return false;
+        if(userBrowser.name == 'Internet Explorer' && userBrowser.version < 9) return false;
+        else return true;
+    }
+    function createNotSupported(title,text,browsers){
+        $('.additional_links').hide();
+        var html = '<h3 class="not-supported-title">' + title + '</h3>';
+        html += '<p class="not-supported-text">'+text+'</p>';
+        html += '<ul class="not-supported-body"> ';
+        $.each(browsers, function(i, browser) {
+            if(browser.isHidden) return;
+            html += '<li>' +
+                '<img src="'+browser.imageSrc+'" width="100%">' +
+                '<a href="'+browser.link+'">' + browser.name + '</a>' +
+                '</li>';
+        });
+        html += '</ul>';
+        $('#page_columns').html(html);
+    }
+    function getFormData($form){
+        var unindexed_array = $form.serializeArray();
+        var indexed_array = {};
+        $.map(unindexed_array, function(n, i){
+            indexed_array[n['name']] = n['value'];
+        });
+        return indexed_array;
+    }
+    function isMsIe() {
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+        return msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./);
+    }
+
+    jQuery(function()
+    {
+
+        if (ipToken != localStorage.getItem('_iptkn')){
+            $('.text_rename_session_name').show();
+        } else {
+            $('.text_rename_session_name').hide();
+        }
+        function chekChooseAccount() {
+            if (window.localStorage.getItem('_rftn') && isTwoFactorAndIsSaveRftn && localStorage.getItem('account_id')){
+                chooseAccountByRefreshToken();
+            } else {
+                location.href = '/user/login-by-auth-center?back=/';
+            }
+        }
+        function chooseAccountByRefreshToken(){
+
+            let account_list = '';
+            var getAccountId = localStorage.getItem('account_id');
+            var account_id = getAccountId ? atob(getAccountId) : getAccountId;
+            var sEname_post = localStorage.getItem('_ename_pst');
+            var accountId = account_id;
+
+            //Current user info
+            var newElem = '';
+            newElem += '<div class="loginForm_each2" id="account_option" style="text-align: center">';
+            newElem +=    '<span class="material-icons" style="font-size: 60px;text-align: center">account_circle</span>';
+            newElem +=    '<input class="submit_account" style="text-align: center" type="button" value="'+ sEname_post +'" account_id="'+accountId+'">';
+            newElem += '</div>';
+            newElem += '<div class="mini_login_form_header_subtitle" style="text-align: center; margin:5px 0;">Для продолжения работы Выберите аккаунт для входа:</div>';
+
+            var newElem2 = '';
+            newElem2 += '<div class="loginForm_each" id="account_option">';
+            newElem2 +=    '<span class="material-icons">forward</span>';
+            newElem2 +=    '<input class="submit_account" type="button" value="Продолжить работу в системе" account_id="'+accountId+'">';
+            newElem2 += '</div>';
+
+            account_list += newElem + newElem2;
+
+            $('#account_list').html(account_list);
+            $('#account_list .loginForm_each').click(function(){
+
+                var account_id = $(this).find('.submit_account').attr('account_id');
+                var refreshtoken = localStorage.getItem('_rftn');
+
+                $.post('/user/login-by-auth-center?back=/',{is_mini: true, refresh_token: refreshtoken, account_id: account_id},function(newData){
+                    if (newData.status){
+                        oLoginFormMessagesAuthCenter(newData);
+                    }
+                }, 'json');
+
+            });
+        }
+
+        if (isTwoFactorAndIsSaveRftn && isAuthCenter){
+            chekChooseAccount();
+        }
+        $('[name=user_agent_js]').val(navigator.userAgent);
+        $('[name=win_h_w]').val(window.screen.height + "|" + window.screen.width);
+        $('[name=browser_name]').val(getBrowser().name);
+        $('[name=browser_version]').val(getBrowser().version);
+        if(window.localStorage.getItem("browser_key") === null) {
+            window.localStorage.setItem("browser_key", $.now());
+        }
+        if(getCookie("browser_token") === "") {
+            setCookie("browser_token", Math.floor(Math.random()*(99999-9+1)+9) + "", {path: '/', expires: 30 * 3 * 24 * 60 * 60});
+        }
+        var sBrowserKey = window.localStorage.getItem("browser_key");
+        var sBrowserToken = getCookie("browser_token");
+        setCookie("browser_token", sBrowserToken, {path: '/', expires: 30 * 3 * 24 * 60 * 60});
+                $('[name=browser_key]').val(sBrowserKey);
+        $('[name=browser_token]').val(sBrowserToken);
+
+        if(!checkIsSupported()){
+            var title = "\u0412\u0430\u0448 \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u0443\u0441\u0442\u0430\u0440\u0435\u043b!";
+            var text = "\u0412\u044b \u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442\u0435\u0441\u044c \u0443\u0441\u0442\u0430\u0440\u0435\u0432\u0448\u0435\u0439 \u0432\u0435\u0440\u0441\u0438\u0435\u0439 \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u0430 |browser| \u0414\u0430\u043d\u043d\u0430\u044f \u0432\u0435\u0440\u0441\u0438\u044f \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u0430 \u043d\u0435 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0435\u0442 \u043c\u043d\u043e\u0433\u0438\u0435 \u0441\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0435 \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0438, \u0438\u0437-\u0437\u0430 \u0447\u0435\u0433\u043e \u043c\u043d\u043e\u0433\u0438\u0435 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u044b \u043e\u0442\u043e\u0431\u0440\u0430\u0436\u0430\u044e\u0442\u0441\u044f \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e, \u0430 \u0433\u043b\u0430\u0432\u043d\u043e\u0435 - \u043d\u0430 \u0441\u0430\u0439\u0442\u0435  \u043c\u043e\u0433\u0443\u0442 \u0440\u0430\u0431\u043e\u0442\u0430\u0442\u044c \u043d\u0435 \u0432\u0441\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0438. \u0412 \u0441\u0432\u044f\u0437\u0438 \u0441 \u044d\u0442\u0438\u043c \u043f\u0440\u043e\u0441\u0438\u043c \u0412\u0430\u0441 \u043e\u0431\u043d\u043e\u0432\u0438\u0442\u044c \u0431\u0440\u0430\u0443\u0437\u0435\u0440 \u0438\u043b\u0438 \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u043e\u0434\u0438\u043d \u0438\u0437 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0445:";
+            text = text.replace('|browser|', getBrowser().name);
+
+            var browsers = [
+                {
+                    name: 'Firefox',
+                    link: 'https://www.mozilla.org/ru/firefox/new/',
+                    imageSrc: '/tpl/web/img/browser_logo/firefox-logo.png'
+                }, {
+                    name: 'Chrome',
+                    link: 'https://www.google.ru/intl/ru/chrome/',
+                    imageSrc: '/tpl/web/img/browser_logo/google-logo.png'
+                }, {
+                    name: 'Opera',
+                    link: 'https://www.opera.com/ru/',
+                    imageSrc: '/tpl/web/img/browser_logo/opera-logo.png'
+                }
+            ];
+            createNotSupported(title, text, browsers);
+            return;
+        }
+
+        
+        $('.selectlanguage').change(function(){
+            setlanguage($(this).children('option:selected').val())
+        });
+        var oLoginForm = jQuery('#loginForm'),
+            oLoginSignForm = jQuery('#loginSignForm'),
+            oLoginSignResult = jQuery('#sign-login-result'),
+            oTwofactorForm = jQuery('#twofactorForm'),
+            oTwofactorField = jQuery('#twofactorLogin'),
+            oTwofactorBtn = jQuery('#submit_twofactor'),
+            oSubmitBtn = jQuery('#submit'),
+            oPageCol = jQuery('#page_columns'),
+            oLeftBlock = jQuery('#left_sidebar'),
+            oLoginField = jQuery('#login'),
+            oforgotLoginField = jQuery('#forgot_login'),
+            oPasswordField = jQuery('#password'),
+            olanguageField = jQuery('#language'),
+            oResult = jQuery('#result'),
+            oTwofactorResult = jQuery('#twofactor_result'),
+            oErrorHideTimer = null,
+            bLoggedIn = 0
+        ;
+
+
+        function showClick() {
+            var sBackUri = "window.location.href = '/user/login-by-auth-center?back=/'";
+            $('#refresh_token > input').val('Попробовать снова').attr('onclick', sBackUri);
+            $('#refresh_token').show();
+            $('#result').show();
+            $('#account_list').remove();
+        }
+
+        function oLoginFormMessagesAuthCenter(data)
+        {
+            switch (data.status) {
+                case 2:
+                    oResult.addClass('error').html('Сервис аутентификации недоступен');
+                    showClick();
+                    break;
+                case 3:
+                    if(isTwoFactorAndIsSaveRftn && isAuthCenter) {
+                        localStorage.setItem('is_logged', 1);
+                        localStorage.setItem('account_id', btoa(data.mail_id));
+                        localStorage.setItem('_rftn', data.refresh_token);
+                    }
+                    localStorage.setItem('app_revision', data.msf_revision);
+                    if(data.license_expired == true) {
+                        oResult.addClass('success').html('Выполняется вход... Лицензия просрочена').show();
+                        setTimeout(function() { window.location.href = data.location; }, 5000);
+                    } else {
+                        oResult.addClass('success').html('Выполняется вход...').show();
+                        window.location.href = data.location;
+                    }
+                    bLoggedIn = 1;
+                    break;
+                case 5:
+                    oResult.addClass('error').html('Неправильный лицензионный ключ');
+                    showClick();
+                    break;
+                case 6:
+                    oResult.addClass('error').html('Превышено количество лицензий');
+                    showClick();
+                    break;
+                case 11:
+                    oResult.addClass('error').html('Доступ запрещен с данного IP-адреса');
+                    showClick();
+                    break;
+                case 21:
+                    oResult.addClass('error').html('Учетная запись пользователя заблокирована');
+                    showClick();
+                    break;
+                case 22:
+                    oResult.addClass('error').html('Невозможно зайти с данного адреса');
+                    break;
+                case 26:
+                    oResult.addClass('error').html('Учетная запись занята другим пользователем');
+                    oLoginForm.append('<input type="hidden" name="enter_anyway" value="1" />');
+                    oSubmitBtn.val('Все равно войти');
+                    break;
+                case 41:
+                    localStorage.removeItem('_rftn');
+                    oResult.addClass('error').html('Ошибка аутентификации к Центр авторизации');
+                    showClick();
+                    break;
+                case 42:
+                    localStorage.removeItem('_rftn');
+                    oResult.addClass('error').html('Ошибка аутентификации к Центр авторизации (Период доступа в систему истек)');
+                    showClick();
+                    break;
+                case 43:
+                    localStorage.removeItem('_rftn');
+                    oResult.addClass('error').html('Ошибка аутентификации к Центр авторизации (Пользователь не найден)');
+                    showClick();
+                    break;
+                case 44:
+                    oResult.addClass('success').html('Выберите аккаунт для входа');
+                    break;
+                case 50:
+                    oResult.addClass('error').html('Согласно пункта 10 Решения Коллегии МВД Республики Казахстан, от 13 апреля 2023 года 4 дсп КМ функционирование информационных систем документационного обеспечения осуществляется с 9:00 до 18:30');
+                    showClick();
+                    break;
+                default:
+                    oResult.addClass('error').html('Неопределенная ошибка, обратитесь в службу технической поддержки!');
+                    showClick();
+                    break;
+
+            }
+        };
+
+        
+        $('.selectlanguage [value='+olanguageField.val()+']').attr('selected','selected');
+        var     oUpdateForm = jQuery('#updatePasswordForm'),
+            oUpdateFormResult = jQuery('#update_result'),
+            oOldPass = jQuery('#old_password'),
+            oNewPass = jQuery('#new_password'),
+            oNewPassCheck = jQuery('#new_password_check'),
+            oSubmitNewPass = jQuery('#submit_new_pass'),
+            oForgotFormResult = jQuery('#forgot_result'),
+            oForgotNewPass = jQuery('#submit_forgot_pass'),
+            oForgotForm = jQuery('#forgotPasswordForm'),
+            oForgotBtnShow = jQuery('#forgot-password-btn'),
+            oFineshRegistrationForm = jQuery('#fineshRegistrationForm'),
+            oSubmitFineshRegistration = jQuery('#submit_finesh_registration'),
+            oFineshRegistrationResult = jQuery('#finesh_registration_result')
+        ;
+        var userlogin = getCookie("login");
+        var userpassword = getCookie("password");
+        var language = getCookie("language");
+        if (language != "" && language != "undefined")
+        {
+            olanguageField.val(language);
+        }
+        if (userlogin != "" && userlogin != "undefined")
+        {
+            oLoginField.val(userlogin);
+        }
+        if(userpassword != "" && userpassword != "undefined")
+        {
+            oPasswordField.val(userpassword);
+        }
+
+        oLoginField.focus();
+        /*
+           $('#language').change(function(){
+               setCookie('language', $(this).val(), {path: '/', expires: 365 * 24 * 60 * 60});
+               window.location.replace("/user/login");
+           });
+         */
+
+        var loginData = {};
+        var loginAttempt = 0;
+        oLoginForm.submit(function () {
+            $.ajax({
+                url: oLoginForm.attr('action'),
+                type: 'POST',
+                dataType: 'json',
+                data: getFormData(oLoginForm),
+                beforeSend: function()
+                {
+                    oResult.animate({ height:'hide', opacity:'hide' }, 200);
+                    oLoginField.attr('disabled', 'disabled');
+                    oPasswordField.attr('disabled', 'disabled');
+                    oSubmitBtn.attr('disabled', 'disabled').val('Пожалуйста ждите...');
+                    loginData = getFormData(oLoginForm);
+                },
+                success: function(data)
+                {
+                    var isAllFieldsFilled = true;
+                    if(isMsIe()) { // ie hack
+                        $.each(loginData, function(index, value) {
+                            if(!value.length) {
+                                isAllFieldsFilled = false;
+                            }
+                        });
+                        if(data.status === 0 && isAllFieldsFilled && loginAttempt <= 3) {
+                            loginAttempt++;
+                            oSubmitBtn.removeAttr('disabled');
+                            oLoginField.removeAttr('disabled');
+                            oPasswordField.removeAttr('disabled');
+                            oLoginField.focus();
+                            oSubmitBtn.click();
+                            return;
+                        } else {
+                            loginAttempt = 0;
+                        }
+                    }
+
+                    oLoginFormMessages(data);
+                    delete_cookie('password');
+                    delete_cookie('login');
+                    oResult.css({ opacity:0 }).animate({ height:'show' }, 200, function()
+                    {
+                        jQuery(this).animate({ opacity:1.0 }, 100);
+                        if (!bLoggedIn)
+                        {
+                            oSubmitBtn.removeAttr('disabled');
+                            oLoginField.removeAttr('disabled');
+                            oPasswordField.removeAttr('disabled');
+                            oLoginField.focus();
+
+                            /*oErrorHideTimer = setTimeout(function()
+                            {
+                                oResult.animate({opacity:0, height:'hide'}, 200);
+                            }, 5000);*/
+                        }
+                    });
+                }
+            });
+            return false;
+        });
+
+        function oLoginFormMessages(data)
+        {
+            switch (data.status) {
+                case 0:
+                    oResult.addClass('error').html('Заполните поля!');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 1:
+                    oResult.addClass('error').html('Неверный логин или пароль');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 2:
+                    oResult.addClass('error').html('Сервис аутентификации недоступен');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 3:
+                    if(isTwoFactorAndIsSaveRftn && isAuthCenter) {
+                        localStorage.setItem('is_logged', 1);
+                        localStorage.setItem('account_id', btoa(data.mail_id));
+                        localStorage.setItem('_rftn', data.refresh_token);
+                    }
+                    localStorage.setItem('app_revision', data.msf_revision);
+                    if(data.license_expired == true) {
+                        oResult.addClass('success').html('Выполняется вход... Лицензия просрочена');
+                        setTimeout(function() { window.location.href = data.location; }, 5000);
+                    } else {
+                        oResult.addClass('success').html('Выполняется вход...');
+                        window.location.href = data.location;
+                    }
+                    bLoggedIn = 1;
+                    break;
+                case 4:
+                    oResult.addClass('old_pass').html('Ваш пароль устарел!<br /><a href="#" id="update_form_show_btn">Обновить пароль сейчас<'+'/a>');
+                    oResult.children('#update_form_show_btn').click(function()
+                    {
+                        oLoginForm.fadeOut(200, function()
+                        {
+                            oUpdateForm.fadeIn(200, function()
+                            {
+                                oOldPass.focus();
+                            });
+                        });
+                        return false;
+                    });
+                    break;
+                case 5:
+                    oResult.addClass('error').html('Неправильный лицензионный ключ');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 6:
+                    oResult.addClass('error').html('Превышено количество лицензий');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 7:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 8:
+                    oResult.addClass('error').html('Ошибка подключения к LDAP');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 9:
+                    oResult.addClass('error').html('Ошибка LDAP (Удаленный компьютер выключен или не принимает соединения)');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 10:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP (Неверное NetBIOS имя)');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 11:
+                    oResult.addClass('error').html('Доступ запрещен с данного IP-адреса');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 12:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP (Пользователь не найден)');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 13:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP (Неверный логин или пароль или необходимо сменить пароль пользователя)');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 14:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP (Период доступа в систему истек)');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 15:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP (Попытка входа с чужого компьютера)');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 16:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP (Срок действия пароля истек )');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 17:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP (Аккаунт отключен )');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 18:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP (Срок действия аккаунта истек)');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 19:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP (Необходимо сбросить пароль)');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 20:
+                    oResult.addClass('error').html('Ошибка аутентификации к LDAP (Учетная запись пользователя заблокирована)');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 21:
+                    oResult.addClass('error').html('Учетная запись пользователя заблокирована');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 22:
+                    oResult.addClass('error').html('Невозможно зайти с данного адреса');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 23:
+                    oResult.addClass('old_pass').html('Для того что бы войти в систему вам надо завершить регистрацию<br /><a href="#" id="finish_reg_form_show_btn">Завершить регистрацию сейчас<'+'/a>');
+                    oResult.children('#finish_reg_form_show_btn').click(function()
+                    {
+                        oLoginForm.fadeOut(200, function()
+                        {
+                            oFineshRegistrationForm.fadeIn(200, function() {
+                            });
+                            oPageCol.animate({width: 800}, 200);
+                            oLeftBlock.animate({width: 430}, 200);
+                            oFineshRegistrationForm.find('h2').append(' '+$('#login').val());
+                        });
+                        return false;
+                    });
+                    break;
+                case 24:
+                    oLoginForm.fadeOut(200, function()
+                    {
+                        oTwofactorField.val( oLoginField.val() );
+                        oTwofactorForm.fadeIn(200, function()
+                        {
+                            oTwofactorResult.addClass('old_pass').html('Проверочный код отправлен на доверенный адрес ' + data.email).show();
+                            if(oTwofactorResult.innerHeight() > 50) {
+                                oPageCol.css('margin-top', '100px');
+                            }
+                        });
+                        $('.additional_links').hide();
+                    });
+                    break;
+                case 25:
+                    oResult.addClass('error').html('Не заполнена почта для двухфакторной авторизации');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                case 26:
+                    oResult.addClass('error').html('Учетная запись занята другим пользователем');
+                    oLoginForm.append('<input type="hidden" name="enter_anyway" value="1" />');
+                    oSubmitBtn.val('Все равно войти');
+                    break;
+                case 34:
+                    oLoginForm.fadeOut(200, function()
+                    {
+                        oLoginSignForm.fadeIn(200, function()
+                        {
+                            oLoginSignResult.addClass('old_pass').html('Второй шаг авторизации. Выберите ключ ЭЦП.').show();
+                            if(oLoginSignResult.innerHeight() > 50) {
+                                oPageCol.css('margin-top', '100px');
+                            }
+                        });
+                        $('.additional_links').hide();
+                    });
+                    break;
+                case 41:
+                    oResult.addClass('error').html('Ошибка аутентификации к Центр авторизации');
+                    break;
+                case 42:
+                    oResult.addClass('error').html('Ошибка аутентификации к Центр авторизации (Период доступа в систему истек)');
+                    break;
+                case 43:
+                    oResult.addClass('error').html('Ошибка аутентификации к Центр авторизации (Пользователь не найден)');
+                    break;
+                case 44:
+                    oResult.addClass('error').html('Ошибка аутентификации к Центр авторизации (Найдено более одного пользователя с данным E-mail)');
+                    break;
+                case 50:
+                    oResult.addClass('error').html('Согласно пункта 10 Решения Коллегии МВД Республики Казахстан, от 13 апреля 2023 года 4 дсп КМ функционирование информационных систем документационного обеспечения осуществляется с 9:00 до 18:30');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+                default:
+                    oResult.addClass('error').html('Неопределенная ошибка, обратитесь в службу технической поддержки!');
+                    oSubmitBtn.val('Попробовать снова');
+                    break;
+
+            }
+        };
+
+        function oLoginFormMessagesBegin(data){
+            if(data == undefined || data == null || (data == "" && data != 0))return false;
+            oLoginFormMessages({status:data});
+            oResult.show();
+        }
+
+        oLoginFormMessagesBegin();
+
+        oUpdateForm.ajaxForm({
+            target: '#update_result',
+            dataType: 'json',
+            beforeSubmit: function()
+            {
+                /*if (oErrorHideTimer)
+                    clearTimeout(oErrorHideTimer);*/
+
+                oUpdateFormResult.animate({ height:'hide', opacity:'hide' }, 200);
+                oOldPass.attr('disabled', 'disabled');
+                oNewPass.attr('disabled', 'disabled');
+                oNewPassCheck.attr('disabled', 'disabled');
+                oSubmitNewPass.attr('disabled', 'disabled').val('Пожалуйста ждите...');
+            },
+
+            success: function(data)
+            {
+                bLoggedIn = 0;
+
+                switch (data.status)
+                {
+                    case 0:
+                        oUpdateFormResult.addClass('error').html('Заполните поля!');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                    case 1:
+                        oUpdateFormResult.addClass('error').html('Неверный пароль!');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+
+                    case 2:
+                        oUpdateFormResult.addClass('error').html('Центр авторизации недоступен');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                    case 3:
+                        oUpdateFormResult.addClass('success').html('Пароль обновлен! Авторизация прошла успешно');
+                        oSubmitNewPass.val('Пожалуйста ждите...');
+                        window.location.href = data.location;
+                        bLoggedIn = 1;
+                        break;
+                    case 5:
+                        oUpdateFormResult.addClass('error').html('Неправильный лицензионный ключ');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                    case 6:
+                        oUpdateFormResult.addClass('error').html('Превышено количество лицензий');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                    case 7:
+                        oUpdateFormResult.addClass('error').html('Новые пароли не совпадают!');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                    case 8:
+                        oUpdateFormResult.addClass('error').html('Новый пароль должен отличаться от старого!');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                    case 9:
+                        oUpdateFormResult.addClass('error').css('text-align','left').html('Невозможно изменить пароль к LDAP!Примечание: Пароль меняется не чаще 1 раза в сутки.Пароль должен содержать следующие символы:  Заглавные буквы латинского алфавита Строчные буквы латинского алфавита  Цифры от 0 до 9  Специальные символы: ~!@#$%^&*_-+=`|(){}[]:;"\'<>,.?/');
+                        oSubmitBtn.val('Попробовать снова');
+                        break;
+                    case 10:
+                        oUpdateFormResult.addClass('error').html('Новый пароль должен быть:Длина пароля не менее 8 символовСодержать цифруСодержать строчные и заглавные буквыСодержать специальные символы:');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                    case 24:
+                        oUpdateForm.fadeOut(200, function()
+                        {
+                            oTwofactorField.val( oLoginField.val() );
+                            oTwofactorForm.fadeIn(200, function()
+                            {
+                                oTwofactorResult.addClass('old_pass').html('Проверочный код отправлен на доверенный адрес ' + data.email).show();
+                                if(oTwofactorResult.innerHeight() > 50) {
+                                    oPageCol.css('margin-top', '100px');
+                                }
+                            });
+                            $('.additional_links').hide();
+                        });
+                        break;
+                    case 25:
+                        oUpdateFormResult.addClass('error').html('Не заполнена почта для двухфакторной авторизации');
+                        oSubmitBtn.val('Попробовать снова');
+                        break;
+                    case 27:
+                        oUpdateFormResult.addClass('error').html('Данный пароль уже был использован Вами ранее');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                    case 28:
+                        oUpdateFormResult.addClass('error').html('Разность паролей должна быть не менее 3-ех символов');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                    case 33:
+                        oUpdateFormResult.addClass('error').html('После обновления страницы попробуйте заново');
+                        oSubmitNewPass.val('Пожалуйста ждите...');
+                        setTimeout(function() {window.location.reload();}, 3000);
+                        break;
+                    case 34:
+                        oUpdateForm.fadeOut(200, function()
+                        {
+                            oLoginSignForm.fadeIn(200, function()
+                            {
+                                oLoginSignResult.addClass('old_pass').html('Второй шаг авторизации. Выберите ключ ЭЦП.').show();
+                                if(oLoginSignResult.innerHeight() > 50) {
+                                    oPageCol.css('margin-top', '100px');
+                                }
+                            });
+                            $('.additional_links').hide();
+                        });
+                        break;
+                    case 50:
+                        oUpdateFormResult.addClass('error').html('Согласно пункта 10 Решения Коллегии МВД Республики Казахстан, от 13 апреля 2023 года 4 дсп КМ функционирование информационных систем документационного обеспечения осуществляется с 9:00 до 18:30');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                    default:
+                        oUpdateFormResult.addClass('error').html('Неопределенная ошибка, обратитесь в службу технической поддержки');
+                        oSubmitNewPass.val('Попробовать снова');
+                        break;
+                }
+
+                oUpdateFormResult.css({ opacity:0 }).animate({ height:'show' }, 200, function()
+                {
+                    jQuery(this).animate({ opacity:1.0 }, 100);
+                    if (!bLoggedIn)
+                    {
+                        oOldPass.removeAttr('disabled');
+                        oNewPass.removeAttr('disabled');
+                        oNewPassCheck.removeAttr('disabled');
+                        oSubmitNewPass.removeAttr('disabled');
+                        oOldPass.focus();
+
+                        /*oErrorHideTimer = setTimeout(function()
+                        {
+                            oErrorHideTimer.animate({opacity:0, height:'hide'}, 200);
+                        }, 9999);*/
+                    }
+                });
+            }
+        });
+
+        var     oNewPassword = $('#new_password2'),
+            oNewPasswordCheck = $('#new_password_check2'),
+            oNewPhone = $('#new_phone'),
+            oNewEmail = $('#new_email');
+        oNewPhone.mask("+9999 999 99 99");
+        oFineshRegistrationForm.ajaxForm({
+            target: '#finesh_registration_result  ',
+            dataType: 'json',
+            beforeSubmit: function()
+            {
+                var check = false;
+                oFineshRegistrationResult.animate({ height:'hide', opacity:'hide' }, 200);
+                if(oNewPassword.val().length && oNewPasswordCheck.val().length && oNewPhone.val().length && oNewEmail.val().length) {
+                    if(oNewEmail.val().length) {
+                        if(oNewPhone.val().length) {
+                            check = true;
+                            oSubmitFineshRegistration.attr('disabled', 'disabled').val('Пожалуйста ждите...');
+                        } else {
+                            oFineshRegistrationResult.stop().show().addClass('error').html('Введите телефон!');
+                        }
+                    } else {
+                        oFineshRegistrationResult.stop().show().addClass('error').html('Введите e-mail!');
+                    }
+                } else {
+                    oFineshRegistrationResult.stop().show().addClass('error').html('Заполните все поля!');
+                }
+                return check;
+            },
+
+            success: function(data)
+            {
+                bLoggedIn = 0;
+                oFineshRegistrationResult.show();
+                switch (data.status)
+                {
+                    case 0:
+                        oFineshRegistrationResult.addClass('error').html('Заполните поля!');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                    case 1:
+                        oFineshRegistrationResult.addClass('error').html('Неверный пароль!');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+
+                    case 2:
+                        oFineshRegistrationResult.addClass('error').html('Центр авторизации недоступен');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                    case 3:
+                        oFineshRegistrationResult.addClass('success').html('Пароль обновлен! Авторизация прошла успешно');
+                        oSubmitFineshRegistration.val('Пожалуйста ждите...');
+                        window.location.href = data.location;
+                        bLoggedIn = 1;
+                        break;
+                    case 5:
+                        oFineshRegistrationResult.addClass('error').html('Неправильный лицензионный ключ');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                    case 6:
+                        oFineshRegistrationResult.addClass('error').html('Превышено количество лицензий');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                    case 7:
+                        oFineshRegistrationResult.addClass('error').html('Новые пароли не совпадают!');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                    case 8:
+                        oFineshRegistrationResult.addClass('error').html('Новый пароль должен отличаться от старого!');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                    case 9:
+                        oFineshRegistrationResult.addClass('error').css('text-align','left').html('Невозможно изменить пароль к LDAP!Примечание: Пароль меняется не чаще 1 раза в сутки.Пароль должен содержать следующие символы:  Заглавные буквы латинского алфавита Строчные буквы латинского алфавита  Цифры от 0 до 9  Специальные символы: ~!@#$%^&*_-+=`|(){}[]:;"\'<>,.?/');
+                        oSubmitBtn.val('Попробовать снова');
+                        break;
+                    case 10:
+                        oFineshRegistrationResult.addClass('error').html('Новый пароль должен быть:Длина пароля не менее 8 символовСодержать цифруСодержать строчные и заглавные буквыСодержать специальные символы:');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                    case 27:
+                        oFineshRegistrationResult.addClass('error').html('Данный пароль уже был использован Вами ранее');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                    case 28:
+                        oFineshRegistrationResult.addClass('error').html('Разность паролей должна быть не менее 3-ех символов');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                    case 50:
+                        oFineshRegistrationResult.addClass('error').html('Согласно пункта 10 Решения Коллегии МВД Республики Казахстан, от 13 апреля 2023 года 4 дсп КМ функционирование информационных систем документационного обеспечения осуществляется с 9:00 до 18:30');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                    case 100:
+                        oFineshRegistrationResult.addClass('old_pass').html('На указанный вами почтовый адрес отправлено письмо с подтвержением.Пожалуйста, пройдите по ссылке указанной в данном письме для завершения регистрации.');
+                        setTimeout(function(){
+                            window.location.href = '/user/login';
+                        }, 5000);
+                        break;
+                    default:
+                        oFineshRegistrationResult.addClass('error').html('Неопределенная ошибка, обратитесь в службу технической поддержки');
+                        oSubmitFineshRegistration.val('Попробовать снова');
+                        break;
+                }
+
+                oFineshRegistrationResult.show();
+                if (!bLoggedIn)
+                {
+                    oSubmitFineshRegistration.removeAttr('disabled');
+                }
+            }
+        });
+
+        oForgotBtnShow.click(function(){
+            oLoginForm.fadeOut(200, function() {
+                oForgotForm.fadeIn(200, function() {
+                    oforgotLoginField.focus();
+                });
+            });
+            $('.additional_links span').hide();
+            $('#forgotPasswordForm #forgot_result').hide();
+            $('#forgotPasswordForm #forgot_login').val('');
+            $('#login-sign1').show();
+        });
+
+        oForgotForm.ajaxForm({
+            target: '#forgot_result',
+            dataType: 'json',
+            beforeSubmit: function(){
+                oForgotFormResult.animate({ height:'hide', opacity:'hide' }, 200);
+                oforgotLoginField.attr('disabled', 'disabled');
+                oForgotNewPass.attr('disabled', 'disabled').val('Пожалуйста ждите...');
+
+                return;
+            },
+            success: function(data) {
+                oForgotNewPass.removeAttr('disabled').val('Восстановить');
+                if (data.message.indexOf("SEND_MAIL") >= 0) {
+                    var sEmail = data.message.split("|")[1];
+                    data.message = "SEND_MAIL";
+                }
+                var sMessage = data.message;
+                switch(data.message) {
+                    case "USER_NOT_FOUND":
+                        sMessage = "Пользователь не найден";
+                        break;
+
+                    case "ERROR":
+                        sMessage = "Произошла ошибка";
+                        break;
+
+                    case "SEND_MAIL":
+                        sMessage = "\u0412\u0430\u043c \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u043e \u043f\u0438\u0441\u044c\u043c\u043e \u043d\u0430 %";
+                        sMessage = sMessage.replace('%', sEmail)
+                        break
+                }
+
+                if (data.status == 1) {
+                    oForgotFormResult.addClass('success');
+                } else {
+                    oForgotFormResult.addClass('error');
+                }
+                oForgotFormResult.html(sMessage);
+                oForgotFormResult.css({ opacity:0 }).animate({ height:'show' }, 200, function(){
+                    $(this).animate({ opacity:1.0 }, 100);
+                });
+                oforgotLoginField.removeAttr('disabled');
+            }
+        });
+
+        oTwofactorForm.ajaxForm({
+            target: '#twofactor_result',
+            type: 'post',
+            url: "/user/twofactor",
+            dataType: 'json',
+            beforeSubmit: function(){
+                oTwofactorResult.animate({ height:'hide', opacity:'hide' }, 200);
+            },
+            success: function(data) {
+                oTwofactorFormMessages(data);
+
+                oTwofactorResult.css({ opacity:0 }).animate({ height:'show' }, 200, function(){
+                    $(this).animate({ opacity:1.0 }, 100);
+                });
+            }
+        });
+
+        function oTwofactorFormMessages(data)
+        {
+            data.location = decodeURIComponent(data.location);
+            switch (data.status) {
+
+                case 0:
+                    oTwofactorResult.addClass('error').html('Заполните поля!');
+                    break;
+                case 1:
+                    oTwofactorResult.addClass('error').html('Вы ввели неверный код');
+                    break;
+                case 2:
+                    oTwofactorResult.addClass('error').html('Сервис аутентификации недоступен');
+                    break;
+                case 3:
+                    oTwofactorResult.addClass('success').html('Выполняется вход...');
+                    window.location.href = data.location;
+                    bLoggedIn = 1;
+                    break;
+                case 4:
+                    oTwofactorResult.addClass('old_pass').html('Ваш пароль устарел!<br /><a href="#" id="update_form_show_btn">Обновить пароль сейчас<'+'/a>');
+                    oTwofactorResult.children('#update_form_show_btn').click(function()
+                    {
+                        oTwofactorForm.fadeOut(200, function()
+                        {
+                            oUpdateForm.fadeIn(200, function()
+                            {
+                                oOldPass.focus();
+                            });
+                        });
+                        return false;
+                    });
+                    break;
+                case 5:
+                    oTwofactorResult.addClass('error').html('Неправильный лицензионный ключ');
+                    break;
+                case 6:
+                    oTwofactorResult.addClass('error').html('Превышено количество лицензий');
+                    break;
+                case 7:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP');
+                    break;
+                case 8:
+                    oTwofactorResult.addClass('error').html('Ошибка подключения к LDAP');
+                    break;
+                case 9:
+                    oTwofactorResult.addClass('error').html('Ошибка LDAP (Удаленный компьютер выключен или не принимает соединения)');
+                    break;
+                case 10:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP (Неверное NetBIOS имя)');
+                    break;
+                case 11:
+                    oTwofactorResult.addClass('error').html('Доступ запрещен с данного IP-адреса');
+                    break;
+                case 12:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP (Пользователь не найден)');
+                    break;
+                case 13:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP (Неверный логин или пароль)');
+                    break;
+                case 14:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP (Период доступа в систему истек)');
+                    break;
+                case 15:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP (Попытка входа с чужого компьютера)');
+                    break;
+                case 16:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP (Срок действия пароля истек )');
+                    break;
+                case 17:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP (Аккаунт отключен )');
+                    break;
+                case 18:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP (Срок действия аккаунта истек)');
+                    break;
+                case 19:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP (Необходимо сбросить пароль)');
+                    break;
+                case 20:
+                    oTwofactorResult.addClass('error').html('Ошибка аутентификации к LDAP (Учетная запись пользователя заблокирована)');
+                    break;
+                case 21:
+                    oTwofactorResult.addClass('error').html('Учетная запись пользователя заблокирована');
+                    break;
+                case 22:
+                    oTwofactorResult.addClass('error').html('Невозможно зайти с данного адреса');
+                    break;
+                case 23:
+                    oTwofactorResult.addClass('old_pass').html('Для того что бы войти в систему вам надо завершить регистрацию<br /><a href="#" id="finish_reg_form_show_btn">Завершить регистрацию сейчас<'+'/a>');
+                    oTwofactorResult.children('#finish_reg_form_show_btn').click(function()
+                    {
+                        oTwofactorForm.fadeOut(200, function()
+                        {
+                            oFineshRegistrationForm.fadeIn(200, function() {
+                            });
+                            oPageCol.animate({width: 800}, 200);
+                            oLeftBlock.animate({width: 430}, 200);
+                            oFineshRegistrationForm.find('h2').append(' '+$('#login').val());
+                        });
+                        return false;
+                    });
+                    break;
+                case 26:
+                    oTwofactorResult.addClass('error').html('Учетная запись занята другим пользователем');
+                    oTwofactorForm.append('<input type="hidden" name="enter_anyway" value="1" />');
+                    oTwofactorBtn.val('Все равно войти');
+                    break;
+                case 50:
+                    oTwofactorResult.addClass('error').html('Согласно пункта 10 Решения Коллегии МВД Республики Казахстан, от 13 апреля 2023 года 4 дсп КМ функционирование информационных систем документационного обеспечения осуществляется с 9:00 до 18:30');
+                    break;
+                default:
+                    oTwofactorResult.addClass('error').html('Неопределенная ошибка, обратитесь в службу технической поддержки!');
+                    break;
+
+            }
+        };
+
+    $("#eds_ca").unbind('change').bind('change', function () {
+        var sCa = $(this).val();
+        if(sCa == "НУЦ") {
+            $('#eds_type').show();
+            $('#eds_tumar_type').hide();
+            $('#eds_tumar_key').hide();
+        } else {
+            $('#eds_type').hide();
+            $('#eds_tumar_type').show();
+            $('#eds_tumar_key').show();
+        }
+    });
+
+    $("#choose-cert").click(function(){
+        $('#sign-login-result').hide();
+        oLoginSing.setApiKey('');
+        oLoginSing.chooseEds();
+        return false;
+    });
+
+        $('#submit-sign-login').click(function(){
+            oLoginSing.loginAction();
+            return false;
+        });
+
+
+        var oLogoImg = new Image();
+        oLogoImg.src = "/css/common/login_page/logo.png?v=033e30ec",
+            oLogo = jQuery('#logo');
+
+        if(oLogo.length == 0)
+        {
+            oLogo = jQuery('#logo_alt');
+        }
+
+        oDesc = jQuery('#desc');
+
+        if(oDesc.length == 0)
+        {
+            oDesc = jQuery('#desc_alt');
+        }
+
+
+        if (!jQuery.browser.msie)
+            jQuery(oLogoImg).load(function()
+            {
+                setTimeout(function()
+                {
+                    oLogo.fadeIn(200, function()
+                    {
+                        oDesc.css({ opacity:0 }).animate({ height:'show', opacity:1.0 }, 300, function()
+                        {
+                            jQuery('#more').fadeIn(300, function()
+                            {
+                                setTimeout(function()
+                                {
+                                    oLogo.animate({ opacity:0.5 }, 300, function()
+                                    {
+                                        oLogo.animate({ opacity:1.0 }, 400, function()
+                                        {
+                                            oLogo = null;
+                                        });
+                                    });
+                                }, 200);
+                            });
+                        });
+                    });
+                }, 300)
+            });
+        else
+        {
+            oLogo.show();
+            oDesc.show();
+            jQuery('#more').show();
+        }
+
+        oLogoImg = null;
+    });
+
+    oLoginSing.init();
+    oLoginSignMessage = function(sMessageCode, data){
+        if (typeof(sMessageCode) == 'string'){
+            sMessageCode = sMessageCode.trim();
+        }
+        var oResult = $('#sign-login-result');
+        var oChooseBtn = $('#choose-cert');
+        var oLoginBtn = $('#submit-sign-login');
+        var oLoginSignForm = jQuery('#loginSignForm');
+        var oLoginForm = jQuery('#loginForm');
+        var oLoginResult = jQuery('#result');
+        var oTwofactorField = jQuery('#twofactorLogin');
+        var oTwofactorForm = jQuery('#twofactorForm');
+        var oLoginField = jQuery('#login');
+        var oTwofactorResult = jQuery('#twofactor_result');
+        var oPageCol = jQuery('#page_columns');
+
+        oResult.show(0);
+        switch(sMessageCode) {
+            case '0':
+            case 0:
+                oResult.addClass('error').html('Заполните поля');
+                break;
+            case 'fatal_error':
+                oResult.addClass('error').html('Произошла ошибка');
+                break;
+            case 'WRONG_PASSWORD':
+                oResult.addClass('error').html('Неверный пароль');
+                break;
+            case 'LOAD_KEYSTORE_ERROR':
+                oResult.addClass('error').html('Не удалось найти сертификат');
+                break;
+            case 'EMPTY_KEY_LIST':
+                oResult.addClass('error').html('В сертификате не найдены ключи для подписи');
+                break;
+            case 21:
+                oResult.addClass('error').html('Учетная запись пользователя заблокирована');
+                break;
+            case 24:
+                oLoginSignForm.fadeOut(200, function()
+                {
+                    oTwofactorField.val( oLoginField.val() );
+                    oTwofactorForm.fadeIn(200, function()
+                    {
+                        var sText = "\u041f\u0440\u043e\u0432\u0435\u0440\u043e\u0447\u043d\u044b\u0439 \u043a\u043e\u0434 \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d \u043d\u0430 \u0434\u043e\u0432\u0435\u0440\u0435\u043d\u043d\u044b\u0439 \u0430\u0434\u0440\u0435\u0441";
+                        sText = sText.replace('%s', data.email);
+                        oTwofactorResult.addClass('old_pass').html(sText).show();
+                        if(oTwofactorResult.innerHeight() > 50) {
+                            oPageCol.css('margin-top', '100px');
+                        }
+                    });
+                    $('.additional_links').hide();
+                });
+                break;
+            case 25:
+                oResult.addClass('error').html('Не заполнена почта для двухфакторной авторизации');
+                break;
+            case 34:
+                oLoginSignForm.fadeOut(200, function()
+                {
+                    oLoginForm.fadeIn(200, function()
+                    {
+                        oLoginResult.addClass('old_pass').html('С данного аккаунта сначала нужно авторизоваться через логин/пароль').show();
+                        if(oLoginResult.innerHeight() > 50) {
+                            oPageCol.css('margin-top', '100px');
+                        }
+                    });
+                    $('.additional_links').hide();
+                });
+                break;
+            case '1':
+            case 1:
+            case 31:
+                oResult.addClass('error').html('Пользователь не найден');
+                break;
+            case 32:
+                oResult.addClass('error').html('Найдено более одного пользователя с данным сертификатом');
+                break;
+            case 22:
+                oResult.addClass('error').html('Невозможно зайти с данного адреса');
+                break;
+            case 50:
+                oResult.addClass('error').html('Согласно пункта 10 Решения Коллегии МВД Республики Казахстан, от 13 апреля 2023 года 4 дсп КМ функционирование информационных систем документационного обеспечения осуществляется с 9:00 до 18:30');
+                break;
+            case 26:
+                oResult.addClass('error').html('Учетная запись занята другим пользователем');
+                oLoginSignForm.find('[name="enter_anyway"]').val(1);
+                $('#choose-cert')
+                    .removeAttr('disabled')
+                    .val('Все равно войти')
+                    .unbind('click')
+                    .click(function(){
+                        oLoginSing.login();
+                        return false;
+                    });
+                return;
+            default:
+                console.log(sMessageCode);
+                break;
+        }
+        jQuery('#choose-cert').removeAttr('disabled').val('Попробовать снова');
+    }
+
+    
+    /* ]]> */
+</script>
+
+
+
+</body></html>
